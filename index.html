@@ -59,15 +59,16 @@ main{flex:1;max-width:1240px;width:100%;margin:auto;padding:28px 20px}
 .stat b{display:block;font-family:'Sora';font-size:26px;font-weight:800;line-height:1.1}.stat span{font-size:12px;color:var(--mute);font-weight:600}
 .grid3{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
 .timer{padding:20px;display:flex;flex-direction:column;gap:14px;border-left:4px solid var(--teal)}
-.timer[data-state=soon]{border-left-color:var(--warn)}.timer[data-state=over]{border-left-color:var(--bad)}
+.timer[data-state=soon]{border-left-color:var(--warn)}.timer[data-state=over]{border-left-color:var(--bad)}.timer[data-state=rev]{border-left-color:var(--accent)}
 .timer h3{font-size:19px;font-weight:700}
 .tc{display:flex;gap:8px;align-items:flex-end}
 .seg{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:8px 6px;min-width:58px;text-align:center}
 .seg b{display:block;font-family:'JetBrains Mono';font-size:24px;line-height:1.1;color:var(--teal)}
 .seg i{font-style:normal;font-size:10px;color:var(--mute);font-weight:600}
-.tc[data-state=soon] .seg b{color:var(--warn)}.tc[data-state=over] .seg b{color:var(--bad)}
+.tc[data-state=soon] .seg b{color:var(--warn)}.tc[data-state=over] .seg b{color:var(--bad)}.tc[data-state=rev] .seg b{color:var(--accent)}
 .tc.sm .seg{min-width:40px;padding:3px 4px;border-radius:8px}.tc.sm .seg b{font-size:13px}.tc.sm .seg i{display:none}
 .tcnote{font-size:11px;font-weight:700;color:var(--bad);align-self:center}
+.sec-h{margin:34px 0 14px;display:flex;align-items:center;gap:10px}
 .about{margin-top:34px;padding:24px;display:grid;gap:10px}
 .about .meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;font-size:12px;color:var(--mute);border-top:1px solid var(--line);padding-top:12px}
 
@@ -103,6 +104,9 @@ main{flex:1;max-width:1240px;width:100%;margin:auto;padding:28px 20px}
 .tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:13px}
 th{text-align:left;padding:12px 14px;font-size:12px;color:var(--mute);font-weight:600;border-bottom:1px solid var(--line);white-space:nowrap}
 td{padding:11px 14px;border-bottom:1px solid var(--line);white-space:nowrap}tr:last-child td{border:0}tbody tr:hover{background:var(--panel2)}
+td.wr{white-space:normal;word-break:break-word;min-width:150px;max-width:260px}
+.edc{display:flex;align-items:center;gap:8px}.edc .av{margin:0;flex:none}
+.dr{display:flex;align-items:center;gap:6px}.dr input{width:138px}
 .done{text-decoration:line-through;opacity:.5}
 .av{width:26px;height:26px;border-radius:50%;background:var(--panel2);border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--accent);margin-right:8px}
 input[type=checkbox]{width:16px;height:16px;accent-color:var(--accent);padding:0}
@@ -120,6 +124,8 @@ input[type=checkbox]{width:16px;height:16px;accent-color:var(--accent);padding:0
 .sheet h3{font-size:19px}.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .checks{max-height:140px;overflow-y:auto;display:grid;gap:8px;padding:12px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;font-size:13px}
 .checks label{display:flex;gap:10px;align-items:center;cursor:pointer}
+.pw{position:relative}.pw input{padding-right:44px}
+.pw .ib{position:absolute;right:4px;top:4px;width:32px;height:32px;border:0;background:none}
 .err{font-size:12px;color:var(--bad);background:color-mix(in srgb,var(--bad) 10%,transparent);padding:10px;border-radius:12px}
 #cp{z-index:9900;align-items:flex-start;padding-top:14vh}.cp-box{width:100%;max-width:560px;overflow:hidden;animation:pop .28s cubic-bezier(.2,.9,.25,1)}
 .cp-box input{border:0;border-bottom:1px solid var(--line);border-radius:0;padding:16px 18px;font-size:15px;background:transparent}.cp-box input:focus{box-shadow:none}
@@ -165,6 +171,9 @@ footer div{max-width:1240px;margin:auto;display:flex;justify-content:space-betwe
 <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4M3 5v14a2 2 0 0 0 2 2h16v-5M18 12a2 2 0 0 0 0 4h4v-4z"/></symbol>
 <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0zM12 9v4M12 17h.01"/></symbol>
 <symbol id="i-film" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M7 3v18M17 3v18M2 12h20M2 7.5h5M2 16.5h5M17 7.5h5M17 16.5h5"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M17.9 17.9A10.9 10.9 0 0 1 12 20C5 20 1 12 1 12a18.5 18.5 0 0 1 5.1-5.9M9.9 4.2A9.1 9.1 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.2 3.2M1 1l22 22"/></symbol>
+<symbol id="i-rev" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"/></symbol>
 </defs></svg>
 
 <header><div class="bar">
@@ -198,6 +207,7 @@ footer div{max-width:1240px;margin:auto;display:flex;justify-content:space-betwe
   </div>
   <div id="timers-grid" class="grid3"></div>
   <div id="timers-empty" class="card empty hidden">No projects match this view.</div>
+  <div id="rev-sec" class="hidden"><div class="sec-h"><h2 style="font-size:22px">Revision</h2><span class="chip" id="rev-count">0</span></div><div id="rev-grid" class="grid3"></div></div>
   <div class="card about">
     <div class="row"><img src="thelogo.png" alt="" style="width:44px;height:44px;border-radius:12px;object-fit:cover"><div><h3 style="font-size:17px">Tosrec Studios</h3><p class="small mute">Video post-production and media</p></div></div>
     <p style="font-size:13px;color:var(--mute);max-width:75ch">Travel vlogs, real estate showcases, commercial promos, talking-head videos and cinematic edits, finished in DaVinci Resolve, Premiere Pro and After Effects for creators and brands worldwide.</p>
@@ -235,11 +245,12 @@ footer div{max-width:1240px;margin:auto;display:flex;justify-content:space-betwe
         <div class="row wrap">
           <select id="ed-filter" class="hidden" onchange="renderDashboard()" style="width:150px"></select>
           <select id="st-filter" onchange="renderDashboard()" style="width:120px"><option value="ALL">Any status</option><option>Due</option><option>Partial</option><option>Paid</option></select>
-          <input id="task-search" placeholder="Search task" oninput="renderDashboard()" style="width:150px">
+          <input id="task-search" placeholder="Search task, editor or date" oninput="renderDashboard()" style="width:200px">
+          <div class="dr"><input type="date" id="d-from" onchange="renderDashboard()" title="From date"><span class="mute small">to</span><input type="date" id="d-to" onchange="renderDashboard()" title="To date"><button class="ib" onclick="clearDates()" title="Clear dates" aria-label="Clear dates"><svg class="i"><use href="#i-x"/></svg></button></div>
         </div>
       </div>
       <div class="card"><div class="tw"><table>
-        <thead><tr><th>Done</th><th>Task</th><th>Editor</th><th>Status</th><th>Amount</th><th>Paid by</th><th id="th-act" class="hidden"></th></tr></thead>
+        <thead><tr><th>Done</th><th>Task</th><th>Editor</th><th>Date</th><th>Status</th><th>Amount</th><th>Paid by</th><th id="th-act" class="hidden"></th></tr></thead>
         <tbody id="tbody"></tbody></table></div>
         <div id="tasks-empty" class="empty hidden">No entries in this view.</div></div>
     </div>
@@ -264,7 +275,7 @@ footer div{max-width:1240px;margin:auto;display:flex;justify-content:space-betwe
 </section>
 </main>
 
-<footer><div><span>Tosrec Studios Workspace</span><span class="mono">v6.0 · <kbd>Ctrl</kbd> <kbd>K</kbd> command menu</span></div></footer>
+<footer><div><span>Tosrec Studios Workspace</span><span class="mono">v6.1 · <kbd>Ctrl</kbd> <kbd>K</kbd> command menu</span></div></footer>
 
 <div id="float-layer"></div>
 <div id="toasts"></div>
@@ -273,7 +284,7 @@ footer div{max-width:1240px;margin:auto;display:flex;justify-content:space-betwe
   <div class="row between"><h3>Login</h3><button class="ib flat" onclick="closeModal('login-modal')" aria-label="Close"><svg class="i"><use href="#i-x"/></svg></button></div>
   <form onsubmit="handleLogin(event)" style="display:grid;gap:14px">
     <div><label class="l">Name</label><input id="login-user" required autocomplete="username" placeholder="admin or editor name"></div>
-    <div><label class="l">Password</label><input id="login-pass" type="password" required autocomplete="current-password"></div>
+    <div><label class="l">Password</label><div class="pw"><input id="login-pass" type="password" required autocomplete="current-password"><button type="button" class="ib" id="pw-btn" onclick="togglePw()" title="Show or hide password" aria-label="Show or hide password"><svg class="i"><use href="#i-eye"/></svg></button></div></div>
     <p class="err hidden" id="login-err">Name or password is wrong. Check both and try again.</p>
     <button class="btn primary" style="justify-content:center"><svg class="i"><use href="#i-login"/></svg>Login</button>
   </form></div></div>
@@ -293,6 +304,7 @@ footer div{max-width:1240px;margin:auto;display:flex;justify-content:space-betwe
   <form onsubmit="saveTask(event)" style="display:grid;gap:14px">
     <input type="hidden" id="task-id">
     <div><label class="l">Task or client name</label><input id="task-name" required></div>
+    <div><label class="l">Date</label><input type="date" id="task-date" required></div>
     <div class="g2">
       <div><label class="l">Editor</label><input id="task-assignee" list="ed-list" required></div>
       <div><label class="l">Status</label><select id="task-status" onchange="payToggle()"><option>Due</option><option>Partial</option><option>Paid</option></select></div>
@@ -340,8 +352,9 @@ try{if(user)floats=JSON.parse(localStorage.getItem('tosrec_floats'))||{}}catch{}
 const saveFloats=()=>localStorage.setItem('tosrec_floats',JSON.stringify(floats));
 
 function toast(m,t=''){const e=document.createElement('div');e.className='toast '+t;e.innerHTML=ic(t==='bad'?'alert':'check')+`<span>${esc(m)}</span>`;$('toasts').appendChild(e);setTimeout(()=>e.remove(),3200)}
-function openModal(id){if(id==='login-modal'){$('login-err').classList.add('hidden');$('login-user').value='';$('login-pass').value=''}$(id).classList.remove('hidden')}
+function openModal(id){if(id==='login-modal'){$('login-err').classList.add('hidden');$('login-user').value='';$('login-pass').value='';$('login-pass').type='password';$('pw-btn').innerHTML=ic('eye')}$(id).classList.remove('hidden')}
 function closeModal(id){$(id).classList.add('hidden')}
+function togglePw(){const i=$('login-pass'),s=i.type==='password';i.type=s?'text':'password';$('pw-btn').innerHTML=ic(s?'eye-off':'eye')}
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape')document.querySelectorAll('.modal').forEach(m=>m.classList.add('hidden'));
   if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openCp()}
@@ -435,27 +448,47 @@ function switchView(v,instant){
 /* timers */
 function stateOf(d){const diff=new Date(d)-Date.now();return diff<=0?'over':diff<864e5?'soon':'ok'}
 function setHF(f){hf=f;document.querySelectorAll('#home-filter button').forEach(b=>b.classList.toggle('on',b.dataset.f===f));renderTimers()}
-function renderTimers(){
-  const q=$('timer-search').value.toLowerCase();
-  const list=timers.filter(t=>(!q||t.project_name.toLowerCase().includes(q)||t.editor_name.toLowerCase().includes(q))&&(hf==='all'||stateOf(t.deadline)===hf));
-  $('st-total').textContent=timers.length;
-  $('st-soon').textContent=timers.filter(t=>stateOf(t.deadline)==='soon').length;
-  $('st-over').textContent=timers.filter(t=>stateOf(t.deadline)==='over').length;
-  $('timers-empty').classList.toggle('hidden',list.length>0);
-  $('timers-grid').innerHTML=list.map(t=>`
-   <article class="card timer" data-state="${stateOf(t.deadline)}">
+function card(t,rev){
+  const st=rev?'rev':stateOf(t.deadline);
+  const acts=(user?ib('popout','Open chat in a floating window',`popOut('${t.id}')`):'')
+    +(canManage()?ib('edit','Edit project',`editTimer('${t.id}')`)
+      +(rev?ib('clock','Back to running',`setRev('${t.id}',false)`):ib('rev','Move to revision',`setRev('${t.id}',true)`))
+      +ib('check','Mark done',`completeTimer('${t.id}')`,'ok'):'');
+  const sub=rev?'In revision since '+new Date(t.revision_at).toLocaleString([],{dateStyle:'medium',timeStyle:'short'})
+    :'Due '+new Date(t.deadline).toLocaleString([],{dateStyle:'medium',timeStyle:'short'});
+  return `<article class="card timer" data-state="${st}">
     <div class="row between wrap">
       <div class="row wrap" style="gap:6px">${t.editor_name.split(',').map(n=>`<span class="chip">${esc(n.trim())}</span>`).join('')}</div>
-      <div class="row" style="gap:6px">${user?ib('popout','Open chat in a floating window',`popOut('${t.id}')`):''}${canManage()?ib('edit','Edit project',`editTimer('${t.id}')`)+ib('check','Mark done',`completeTimer('${t.id}')`,'ok'):''}</div>
+      <div class="row" style="gap:6px">${acts}</div>
     </div>
-    <div><h3>${esc(t.project_name)}</h3><p class="small mute">Due ${new Date(t.deadline).toLocaleString([],{dateStyle:'medium',timeStyle:'short'})}</p></div>
-    <div class="tc" data-deadline="${t.deadline}"></div>
-   </article>`).join('');
+    <div><h3>${esc(t.project_name)}</h3><p class="small mute">${sub}</p></div>
+    <div class="tc" ${rev?`data-since="${t.revision_at}"`:`data-deadline="${t.deadline}"`}></div>
+   </article>`;
+}
+function renderTimers(){
+  const q=$('timer-search').value.toLowerCase();
+  const m=t=>!q||t.project_name.toLowerCase().includes(q)||t.editor_name.toLowerCase().includes(q);
+  const run=timers.filter(t=>!t.revision_at),revs=timers.filter(t=>t.revision_at);
+  const list=run.filter(t=>m(t)&&(hf==='all'||stateOf(t.deadline)===hf)),rl=revs.filter(m);
+  $('st-total').textContent=run.length;
+  $('st-soon').textContent=run.filter(t=>stateOf(t.deadline)==='soon').length;
+  $('st-over').textContent=run.filter(t=>stateOf(t.deadline)==='over').length;
+  $('timers-empty').classList.toggle('hidden',list.length>0);
+  $('timers-grid').innerHTML=list.map(t=>card(t,false)).join('');
+  $('rev-grid').innerHTML=rl.map(t=>card(t,true)).join('');
+  $('rev-sec').classList.toggle('hidden',!rl.length);$('rev-count').textContent=rl.length;
   tick();
+}
+async function setRev(id,on){
+  const r=await db.from('active_timers').update({revision_at:on?new Date().toISOString():null}).eq('id',id);
+  if(r.error)return toast(r.error.message,'bad');
+  toast(on?'Moved to revision':'Back to running');fetchAll();
 }
 function tick(){
   document.querySelectorAll('.tc').forEach(el=>{
-    const diff=new Date(el.dataset.deadline)-Date.now(),a=Math.abs(diff),st=stateOf(el.dataset.deadline);
+    const since=el.dataset.since;let a,st;
+    if(since){a=Math.max(0,Date.now()-new Date(since));st='rev'}
+    else{a=Math.max(0,new Date(el.dataset.deadline)-Date.now());st=stateOf(el.dataset.deadline)}
     const p=n=>String(n).padStart(2,'0');
     const v=[Math.floor(a/864e5),Math.floor(a%864e5/36e5),Math.floor(a%36e5/6e4),Math.floor(a%6e4/1e3)],u=['days','hrs','min','sec'];
     el.dataset.state=st;el.closest('.timer')?.setAttribute('data-state',st);
@@ -490,7 +523,7 @@ async function completeTimer(id){
 /* chat — shared by inline cards and global floating windows */
 const me=()=>user.name.trim().toLowerCase();
 const unread=id=>comments.filter(c=>c.timer_id===id&&c.author_name.trim().toLowerCase()!==me()&&!parse(c.read_by).includes(user.name)).length;
-const meta=t=>`${comments.filter(c=>c.timer_id===t.id).length} messages · due ${new Date(t.deadline).toLocaleString([],{dateStyle:'medium',timeStyle:'short'})}`;
+const meta=t=>`${comments.filter(c=>c.timer_id===t.id).length} messages · ${t.revision_at?'in revision':'due '+new Date(t.deadline).toLocaleString([],{dateStyle:'medium',timeStyle:'short'})}`;
 function msgsHTML(t){
   const cs=comments.filter(c=>c.timer_id===t.id);
   return cs.map(c=>{
@@ -507,7 +540,7 @@ function chatInner(t,fl){
   const id=t.id,u=unread(id),f=floats[id];
   return `<div class="chat-head"><div class="ch-main"><div class="row" style="gap:8px"><span class="dot"></span><h3 class="ch-title">${esc(t.project_name)}</h3><span class="badge ${u?'':'hidden'}" id="ub-${id}">${u}</span></div>
     <p class="small mute" id="meta-${id}">${meta(t)}</p></div>
-   <div class="row" style="gap:6px"><div class="tc sm" data-deadline="${t.deadline}"></div>
+   <div class="row" style="gap:6px"><div class="tc sm" ${t.revision_at?`data-since="${t.revision_at}"`:`data-deadline="${t.deadline}"`}></div>
     ${ib('checks','Mark all as read',`markAll('${id}')`)}
     ${fl?`<button class="ib sm minbtn" title="${f?.min?'Restore':'Minimize'}" aria-label="Minimize" onclick="toggleMin('${id}')">${ic(f?.min?'expand':'minus')}</button>`+ib('dock','Dock back into page',`dock('${id}')`):ib('popout','Pop out (move anywhere)',`popOut('${id}')`)+ib(fullId===id?'shrink':'expand',fullId===id?'Exit full screen':'Full screen',`toggleFull('${id}')`)}
    </div></div>
@@ -618,25 +651,34 @@ function dragInit(el,id){
 addEventListener('resize',()=>document.querySelectorAll('.fwin').forEach(clampPos));
 
 /* cashflow */
+const p2=n=>String(n).padStart(2,'0');
+const isoD=d=>d.getFullYear()+'-'+p2(d.getMonth()+1)+'-'+p2(d.getDate());
+const tdate=t=>t.task_date||(t.created_at?isoD(new Date(t.created_at)):'');
+const fmtD=s=>s?new Date(s+'T00:00:00').toLocaleDateString([],{day:'numeric',month:'short',year:'numeric'}):'—';
+function clearDates(){$('d-from').value='';$('d-to').value='';renderDashboard()}
 function setTab(t){tab=t;document.querySelectorAll('#task-tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));renderDashboard()}
 function renderDashboard(){
   if(!user)return;
-  const mg=canManage(),q=$('task-search').value.toLowerCase(),ef=$('ed-filter').value,sf=$('st-filter').value;
+  const mg=canManage(),q=$('task-search').value.toLowerCase().trim(),ef=$('ed-filter').value,sf=$('st-filter').value;
   let acc=mg?tasks:tasks.filter(t=>t.assignee.toLowerCase().includes(user.name.toLowerCase()));
   if(mg&&ef&&ef!=='ALL')acc=acc.filter(t=>t.assignee.toLowerCase().includes(ef.toLowerCase()));
   if(sf!=='ALL')acc=acc.filter(t=>t.tk_status===sf);
+  const df=$('d-from').value,dt=$('d-to').value;
+  if(df)acc=acc.filter(t=>tdate(t)>=df);
+  if(dt)acc=acc.filter(t=>tdate(t)<=dt);
   $('c-uncomplete').textContent=acc.filter(t=>!t.is_completed).length;
   $('c-completed').textContent=acc.filter(t=>t.is_completed).length;$('c-all').textContent=acc.length;
   const byTab=acc.filter(t=>tab==='all'||(tab==='completed')===!!t.is_completed);
-  const vis=byTab.filter(t=>!q||t.task_name.toLowerCase().includes(q));
+  const vis=byTab.filter(t=>!q||(t.task_name+' '+t.assignee+' '+tdate(t)+' '+fmtD(tdate(t))).toLowerCase().includes(q));
   window._vis=vis;
   $('tasks-empty').classList.toggle('hidden',vis.length>0);
   $('tbody').innerHTML=vis.map(t=>{
     const cls=t.tk_status==='Paid'?'ok':t.tk_status==='Partial'?'warn':'bad';
     const s16=(Number(t.amount_bdt)||0)*.16,tip=Number(t.amount_usd)||0;
     return `<tr><td><input type="checkbox" ${t.is_completed?'checked':''} onchange="toggleDone('${t.id}',this.checked)" aria-label="Completed"></td>
-     <td class="${t.is_completed?'done':''}" style="font-weight:700">${esc(t.task_name)}</td>
-     <td><span class="av">${esc(t.assignee.charAt(0).toUpperCase())}</span>${esc(t.assignee)}</td>
+     <td class="wr ${t.is_completed?'done':''}" style="font-weight:700">${esc(t.task_name)}</td>
+     <td class="wr"><div class="edc"><span class="av">${esc(t.assignee.charAt(0).toUpperCase())}</span><span>${esc(t.assignee)}</span></div></td>
+     <td class="mono">${fmtD(tdate(t))}</td>
      <td><span class="chip ${cls}">${esc(t.tk_status)}</span></td>
      <td class="mono"><span style="color:var(--accent)">$${s16.toFixed(2)}</span>${tip>0?` <span class="mute">+</span> <span style="color:var(--warn)">$${tip.toFixed(2)}</span>`:''}</td>
      <td>${t.tk_status==='Paid'&&t.delivery_tag?`<span class="chip">${esc(t.delivery_tag)}</span>`:'<span class="mute">—</span>'}</td>
@@ -664,17 +706,18 @@ async function toggleDone(id,v){await db.from('cashflow_tasks').update({is_compl
 function payToggle(){$('pay-wrap').classList.toggle('hidden',$('task-status').value!=='Paid')}
 function openTaskModal(){
   $('task-title').textContent='New entry';['task-id','task-name','task-assignee'].forEach(i=>$(i).value='');
+  $('task-date').value=isoD(new Date());
   $('task-amt').value=0;$('task-tips').value=0;$('task-status').value='Due';$('task-pay').value='Bkash';payToggle();openModal('task-modal');
 }
 function editTask(id){
   const t=tasks.find(x=>x.id===id);if(!t)return;openTaskModal();
-  $('task-title').textContent='Edit entry';$('task-id').value=t.id;$('task-name').value=t.task_name;$('task-assignee').value=t.assignee;
+  $('task-title').textContent='Edit entry';$('task-id').value=t.id;$('task-name').value=t.task_name;$('task-date').value=tdate(t);$('task-assignee').value=t.assignee;
   $('task-status').value=t.tk_status;$('task-amt').value=t.amount_bdt;$('task-tips').value=t.amount_usd;$('task-pay').value=t.delivery_tag||'Bkash';payToggle();
 }
 function markPaid(id){editTask(id);$('task-status').value='Paid';payToggle()}
 async function saveTask(e){
   e.preventDefault();const id=$('task-id').value,st=$('task-status').value;
-  const row={task_name:$('task-name').value.trim(),assignee:$('task-assignee').value.trim(),tk_status:st,
+  const row={task_name:$('task-name').value.trim(),task_date:$('task-date').value||null,assignee:$('task-assignee').value.trim(),tk_status:st,
     amount_bdt:Number($('task-amt').value)||0,amount_usd:Number($('task-tips').value)||0,delivery_tag:st==='Paid'?$('task-pay').value:''};
   const r=id?await db.from('cashflow_tasks').update(row).eq('id',id):await db.from('cashflow_tasks').insert([row]);
   if(r.error)return toast(r.error.message,'bad');
@@ -686,8 +729,8 @@ async function updateRate(){
   rate=Number($('rate').value)||120;await db.from('app_settings').update({usd_rate:rate}).eq('id',1);renderDashboard();toast('Rate updated');
 }
 function exportCsv(){
-  const rows=[['Task','Editor','Status','Project $','16% $','Tips $','Paid by']];
-  (window._vis||[]).forEach(t=>rows.push([t.task_name,t.assignee,t.tk_status,t.amount_bdt,((Number(t.amount_bdt)||0)*.16).toFixed(2),t.amount_usd,t.delivery_tag||'']));
+  const rows=[['Task','Editor','Date','Status','Project $','16% $','Tips $','Paid by']];
+  (window._vis||[]).forEach(t=>rows.push([t.task_name,t.assignee,tdate(t),t.tk_status,t.amount_bdt,((Number(t.amount_bdt)||0)*.16).toFixed(2),t.amount_usd,t.delivery_tag||'']));
   if(rows.length===1)return toast('Nothing to export in this view.','bad');
   const csv=rows.map(r=>r.map(c=>`"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv'}));a.download=`tosrec-cashflow-${tab}.csv`;a.click();
